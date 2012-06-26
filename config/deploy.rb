@@ -19,6 +19,9 @@ set :last_update_file, "deployed_at.txt"
 set :deploy_to, "/home/rafael/#{application}"
 set :deploy_via, :remote_cache
 
+set :branch, fetch(:branch, "master")
+set :branch, ENV['BRANCH'] if ENV['BRANCH']
+
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :start do ; end
